@@ -1,6 +1,6 @@
 import React from "react";
 import BuyBotton from "./BuyBotton";
-import { BuyerSettings } from "./userOnclick";
+import { BuyerSettings,MyOrder,PurchaseHistory,FavoriteArtist,FavoriteArts} from "./userOnclick";
 
 import buyerImg from "./image/buyHead.png";
 import SettingIcon from "./image/settingIcon.svg";
@@ -12,14 +12,14 @@ import Loveart from "./image/loveartIcon.svg";
 function HeadImg(user) {
     return (
         <div className='_buyLogin_flex'>
-            <div className='_buyLogin_flex-re'>
+            <div className='_buyLogin_flex-re' style={{marginTop: "1em"}}>
                 <img src={buyerImg} alt='buyHead' className='_buyLogin_headImg' />
                 <label className='_buyLogin_headIcon'>
                     {/* 增加檔案 */}
                     <input type='file' style={{ display: "none" }}></input>
                 </label>
             </div>
-            <h3>您好{user.name}你現在是藝拍小夥伴啦</h3>
+            <h3 style={{margin: "0.5em 0"}}>您好{user.name}你現在是藝拍小夥伴啦</h3>
             <div
                 className='_buyLogin_flex'
                 style={{
@@ -34,10 +34,10 @@ function HeadImg(user) {
                     src={SettingIcon}
                     onClick={BuyerSettings}
                 />
-                <BuyBotton text='購買記錄' src={HistoryIcon} />
-                <BuyBotton text='我的訂單' src={OrderIcon} />
-                <BuyBotton text='我喜愛的藝術家' src={Loveartist} />
-                <BuyBotton text='我喜愛的藝術品' src={Loveart} />
+                <BuyBotton text='購買記錄' src={HistoryIcon} onClick={PurchaseHistory}/>
+                <BuyBotton text='我的訂單' src={OrderIcon} onClick={MyOrder}/>
+                <BuyBotton text='我喜愛的藝術家' src={Loveartist} onClick={FavoriteArtist}/>
+                <BuyBotton text='我喜愛的藝術品' src={Loveart} onClick={FavoriteArts}/>
             </div>
             <div id='userDown'></div>
         </div>
