@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import ArtistPage from "./ArtistPage";
 import Art from "./Art";
 import ArtList from "./ArtList";
+import BuyBotton from "./BuyBotton";
 
 import ArtistImg from "./image/ArtistImg.png";
 import pesnalImg from "./image/pesnalImg.png";
@@ -12,15 +13,9 @@ import artsImg from "./image/artsImg.png";
 function BuyerSettings(params) {
     ReactDOM.render(
         <div>
-            <div
-                className='_buyLogin_flex'
-                style={{ flexDirection: "row", justifyContent: "space-around" }}
-            >
-                <div style={{ margin: "0 2em 0 2em" }}>
-                    <div
-                        className='_buyLogin_Titlebox _buyLogin_flex'
-                        style={{ alignItems: "flex-start" }}
-                    >
+            <div className='_buyLogin_flex_content_sa '>
+                <div className='_buyLogin_mx2'>
+                    <div className='_buyLogin_Titlebox _buyLogin_flex'>
                         <div
                             className='_buyLogin_h4'
                             style={{ marginLeft: "0" }}
@@ -38,13 +33,7 @@ function BuyerSettings(params) {
                         {/* 左邊表單 */}
                         <form method='post'>
                             <div className=' _buyLogin_flex_content _buyLogin_p2'>
-                                <label
-                                    className='_buyLogin_h4'
-                                    style={{
-                                        fontSize: 14,
-                                        marginLeft: "0",
-                                    }}
-                                >
+                                <label className='_buyLogin_h4'>
                                     用戶姓名：
                                 </label>
                                 <input
@@ -54,15 +43,7 @@ function BuyerSettings(params) {
                                 ></input>
                             </div>
                             <div className=' _buyLogin_flex_content _buyLogin_p2'>
-                                <label
-                                    className='_buyLogin_h4'
-                                    style={{
-                                        fontSize: 14,
-                                        marginLeft: "0",
-                                    }}
-                                >
-                                    帳號：
-                                </label>
+                                <label className='_buyLogin_h4'>帳號：</label>
                                 <input
                                     className='_buyLogin_SettingInput'
                                     type='text'
@@ -70,15 +51,7 @@ function BuyerSettings(params) {
                                 ></input>
                             </div>
                             <div className=' _buyLogin_flex_content _buyLogin_p2'>
-                                <label
-                                    className='_buyLogin_h4'
-                                    style={{
-                                        fontSize: 14,
-                                        marginLeft: "0",
-                                    }}
-                                >
-                                    Email：
-                                </label>
+                                <label className='_buyLogin_h4'>Email：</label>
                                 <input
                                     className='_buyLogin_SettingInput'
                                     type='email'
@@ -86,28 +59,14 @@ function BuyerSettings(params) {
                                 ></input>
                             </div>
                             <div className=' _buyLogin_flex_content _buyLogin_p2'>
-                                <label
-                                    className='_buyLogin_h4'
-                                    style={{
-                                        fontSize: 14,
-                                        marginLeft: "0",
-                                    }}
-                                >
-                                    Tel：
-                                </label>
+                                <label className='_buyLogin_h4'>Tel：</label>
                                 <input
                                     className='_buyLogin_SettingInput'
                                     type='tel'
                                     name='tel'
                                 ></input>
                             </div>
-                            <div
-                                className='_buyLogin_flex _buyLogin_p2'
-                                style={{
-                                    alignItems: "end",
-                                    paddingBottom: "2em",
-                                }}
-                            >
+                            <div className=' _buyLogin_p2 _buyLogin_flex_end'>
                                 <button className='_buyLogin_ChangeControlBtn '>
                                     更改
                                 </button>
@@ -116,11 +75,8 @@ function BuyerSettings(params) {
                     </div>
                 </div>
                 {/*  */}
-                <div style={{ margin: "0 2em 0 2em" }}>
-                    <div
-                        className='_buyLogin_Titlebox _buyLogin_flex'
-                        style={{ alignItems: "flex-start" }}
-                    >
+                <div className='_buyLogin_mx2'>
+                    <div className='_buyLogin_Titlebox _buyLogin_flex'>
                         <div
                             className='_buyLogin_h4'
                             style={{ marginLeft: "0" }}
@@ -131,78 +87,60 @@ function BuyerSettings(params) {
                     <div className='_buyLogin_Contentbox'>
                         {/* 右邊表單 */}
                         <form method='post'>
-                            <div className=' _buyLogin_flex_content _buyLogin_p2'>
-                                <label
-                                    className='_buyLogin_h4'
-                                    style={{
-                                        fontSize: 14,
-                                        marginLeft: "0",
-                                    }}
-                                >
-                                    城市：
-                                </label>
-                                <input
-                                    className='_buyLogin_SettingInput'
-                                    type='text'
-                                    name='city'
-                                ></input>
+                            <div className=' _buyLogin_flex_content _buyLogin_p1'>
+                                <label className='_buyLogin_h4'>城市：</label>
+                                <select className='_buyLogin_SettingInput'>
+                                    <option disabled>請選擇城市</option>
+                                    <option>桃園市</option>
+                                    <option>新北市</option>
+                                    <option>台北市</option>
+                                    <option>基隆市</option>
+                                    <option>宜蘭縣</option>
+                                    <option>花蓮縣</option>
+                                    <option>台東縣</option>
+                                    <option>屏東縣</option>
+                                    <option>高雄市</option>
+                                    <option>台南市</option>
+                                    <option>嘉義縣</option>
+                                    <option>嘉義市</option>
+                                    <option>雲林縣</option>
+                                    <option>南投縣</option>
+                                    <option>彰化縣</option>
+                                    <option>台中市</option>
+                                    <option>苗栗縣</option>
+                                    <option>新竹縣</option>
+                                    <option>新竹市</option>
+                                    <option>澎湖縣</option>
+                                    <option>金門縣</option>
+                                    <option>連江縣</option>
+                                </select>
                             </div>
-                            <div className=' _buyLogin_flex_content _buyLogin_p2'>
-                                <label
-                                    className='_buyLogin_h4'
-                                    style={{
-                                        fontSize: 14,
-                                        marginLeft: "0",
-                                    }}
-                                >
-                                    區：
-                                </label>
+                            <div className=' _buyLogin_flex_content _buyLogin_p1'>
+                                <label className='_buyLogin_h4'>區：</label>
                                 <input
                                     className='_buyLogin_SettingInput'
                                     type='text'
                                     name='township'
                                 ></input>
                             </div>
-                            <div className=' _buyLogin_flex_content _buyLogin_p2'>
-                                <label
-                                    className='_buyLogin_h4'
-                                    style={{
-                                        fontSize: 14,
-                                        marginLeft: "0",
-                                    }}
-                                >
-                                    路：
-                                </label>
+                            <div className=' _buyLogin_flex_content _buyLogin_p1'>
+                                <label className='_buyLogin_h4'>路：</label>
                                 <input
                                     className='_buyLogin_SettingInput'
                                     type='text'
                                     name='rode'
                                 ></input>
                             </div>
-                            <div className=' _buyLogin_flex_content _buyLogin_p2'>
-                                <label
-                                    className='_buyLogin_h4'
-                                    style={{
-                                        fontSize: 14,
-                                        marginLeft: "0",
-                                    }}
-                                >
-                                    路鄰里：
-                                </label>
+                            <div className=' _buyLogin_flex_content _buyLogin_p1'>
+                                <label className='_buyLogin_h4'>路鄰里：</label>
                                 <input
                                     className='_buyLogin_SettingInput'
                                     type='text'
                                     name='adjacent'
                                 ></input>
                             </div>
-                            <div className=' _buyLogin_flex_content _buyLogin_p2'>
-                                <label
-                                    className='_buyLogin_h4'
-                                    style={{
-                                        fontSize: 14,
-                                        marginLeft: "0",
-                                    }}
-                                >
+                            <div className=' _buyLogin_flex_content _buyLogin_p1'>
+                                <label className='_buyLogin_h4'>
                                     郵遞區號：
                                 </label>
                                 <input
@@ -211,13 +149,7 @@ function BuyerSettings(params) {
                                     name='postalCode'
                                 ></input>
                             </div>
-                            <div
-                                className='_buyLogin_flex _buyLogin_p2'
-                                style={{
-                                    alignItems: "end",
-                                    paddingBottom: "2em",
-                                }}
-                            >
+                            <div className='_buyLogin_flex _buyLogin_p1 _buyLogin_flex_end'>
                                 <button className='_buyLogin_ChangeControlBtn '>
                                     更改
                                 </button>
@@ -276,11 +208,11 @@ function MyOrder(params) {
                 <table className='_buyLogin_table'>
                     <thead className='_buyLogin_tline'>
                         <tr className='_buyLogin_td'>
-                            <th>訂單編號</th>
+                            <th className='_buyLogin_RWDinvisible'>訂單編號</th>
                             <th>出貨狀態</th>
                             <th>金額</th>
                             <th>訂購時間</th>
-                            <th>訂購品項</th>
+                            <th className='_buyLogin_RWDinvisible'>訂購品項</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -288,11 +220,13 @@ function MyOrder(params) {
                             className='_buyLogin_tr _buyLogin_tline'
                             style={{ borderColor: "#CAB296" }}
                         >
-                            <td>1002939311112</td>
+                            <td className='_buyLogin_RWDinvisible'>
+                                1002939311112
+                            </td>
                             <td>未出貨</td>
                             <td>109,800</td>
                             <td>2022/11/02</td>
-                            <td>3</td>
+                            <td className='_buyLogin_RWDinvisible'>3</td>
                             <td>
                                 <button className='_buyLogin_tableBtn'>
                                     詳細資訊
@@ -303,11 +237,13 @@ function MyOrder(params) {
                             className='_buyLogin_tr _buyLogin_tline'
                             style={{ borderColor: "#CAB296" }}
                         >
-                            <td>100293931223</td>
+                            <td className='_buyLogin_RWDinvisible'>
+                                100293931223
+                            </td>
                             <td>未出貨</td>
                             <td>10,800</td>
                             <td>2022/12/02</td>
-                            <td>2</td>
+                            <td className='_buyLogin_RWDinvisible'>2</td>
                             <td>
                                 <button className='_buyLogin_tableBtn'>
                                     詳細資訊
@@ -316,6 +252,32 @@ function MyOrder(params) {
                         </tr>
                     </tbody>
                 </table>
+            </div>
+            <div className='_buyLogin_RWDnone'>
+                <h4 className='_buyLogin_textCenter'>你可能還會喜歡</h4>
+                <div className='_buyLogin_flex_artsRow'>
+                    <ArtList
+                        btnClass='_buyLogin_RWDinvisible'
+                        artsImg={artsImg}
+                        artNameClass='_buyLogin_artName_min'
+                        artname='海報，放輕鬆'
+                        artSizeClass='_buyLogin_artSize_min'
+                        artsize='50X40'
+                        artPriceClass='_buyLogin_artPrice_min'
+                        artprice='20,000'
+                    />
+                    <ArtList
+                        btnClass='_buyLogin_RWDinvisible'
+                        artsImg={artsImg}
+                        artNameClass='_buyLogin_artName_min'
+                        artname='海報，放輕鬆'
+                        artSizeClass='_buyLogin_artSize_min'
+                        artsize='50X40'
+                        artPriceClass='_buyLogin_artPrice_min'
+                        artprice='20,000'
+                    />
+                    {/* 只塞得下兩個 */}
+                </div>
             </div>
         </div>,
         document.getElementById("userDown")
@@ -326,10 +288,15 @@ function MyOrder(params) {
 function FavoriteArtist(params) {
     ReactDOM.render(
         <div>
+            {/* <BuyBotton
+                className='_buyLogin_NewBtn'
+                text='由新至舊'
+                onClick=''
+            /> */}
             {/* 橫的 */}
             <div
-                className='_buyLogin_flex'
-                style={{ flexDirection: "row", height: "30em" }}
+                className='_buyLogin_flex _buyLogin_h30'
+                style={{ flexDirection: "row" }}
             >
                 {/* 一個藝術家 */}
                 <div
@@ -340,12 +307,11 @@ function FavoriteArtist(params) {
                         pesnalImg={pesnalImg}
                         artistImg={ArtistImg}
                         artisrName='yannick aaron'
-                        artisrCountry='french'
                     />
 
                     {/* 作品 */}
                     <div
-                        className='_buyLogin_flex'
+                        className='_buyLogin_flex _buyLogin_RWDinvisible'
                         style={{ flexDirection: "row", zIndex: 2 }}
                     >
                         <Art
@@ -373,9 +339,14 @@ function FavoriteArtist(params) {
 function FavoriteArts(params) {
     ReactDOM.render(
         <div>
+            <BuyBotton
+                className='_buyLogin_NewBtn'
+                text='由新至舊'
+                onClick=''
+            />
             {/* 直的排列作品列 */}
             <div
-                className='_buyLogin_flex'
+                className='_buyLogin_flex_art'
                 style={{
                     marginTop: "1em",
                     alignItems: "stretch",
@@ -383,23 +354,35 @@ function FavoriteArts(params) {
             >
                 {/* 橫排的單個作品 */}
                 <ArtList
+                    btnClass='_buyLogin_deleteBtn'
                     artsImg={artsImg}
+                    artNameClass='_buyLogin_artName'
                     artname='海報，放輕鬆'
+                    artSizeClass='_buyLogin_artSize'
                     artsize='50X40'
+                    artPriceClass='_buyLogin_artPrice'
                     artprice='20,000'
                 />
                 {/* 下一個作品 */}
                 <ArtList
+                    btnClass='_buyLogin_deleteBtn'
                     artsImg={artsImg}
+                    artNameClass='_buyLogin_artName'
                     artname='海報，放輕鬆'
+                    artSizeClass='_buyLogin_artSize'
                     artsize='50X40'
+                    artPriceClass='_buyLogin_artPrice'
                     artprice='20,000'
                 />
                 {/* 下一個作品 */}
                 <ArtList
+                    btnClass='_buyLogin_deleteBtn'
                     artsImg={artsImg}
+                    artNameClass='_buyLogin_artName'
                     artname='海報，放輕鬆'
+                    artSizeClass='_buyLogin_artSize'
                     artsize='50X40'
+                    artPriceClass='_buyLogin_artPrice'
                     artprice='20,000'
                 />
             </div>
