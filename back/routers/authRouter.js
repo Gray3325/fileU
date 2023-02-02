@@ -7,7 +7,7 @@ const pool = require('../utils/db');
 // 加密型態套件 https://www.npmjs.com/package/argon2
 const argon2 = require('argon2');
 //圖片上傳的名稱套件 uuid https://www.npmjs.com/package/uuid
-const { v4: uuidv4 } = require('uuid');
+// const { v4: uuidv4 } = require('uuid');
 // 要處理 content-type 是 multipart/form-data，express 沒有內建，需要另外用套件，這邊用第三方套件 multer 來處理
 // 圖片上傳的套件 https://www.npmjs.com/package/multer
 const multer = require('multer');
@@ -96,6 +96,7 @@ router.post('/register', uploader.single('photo'), registerRules, async (req, re
   if (members.length > 0) {
     // 表示這個 帳號 存在資料庫中
     // 如果已經註冊過，就回覆 400
+    console.log('帳號已經註冊過');
     return res.status(400).json({
       errors: [
         {
@@ -126,7 +127,7 @@ router.post('/register', uploader.single('photo'), registerRules, async (req, re
   });
 });
 
-// /api/auth/login 登入網址
+// /api/auth/login 處理登入的網址
 router.post('/login', async (req, res, next) => {
   // 確認 email 是否存在
   let [members] = await pool.execute('SELECT * FROM users WHERE users_account = ?', [req.body.account]);
