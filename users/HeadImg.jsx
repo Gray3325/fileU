@@ -19,20 +19,18 @@ import buyerImg from "./image/buyHead.png";
 function HeadImg(user) {
     let [UserData, setUserData] = useState({}); //記錄數值
     let [UserOldDatas, setUserOldDatas] = useState({}); //原本的數據
-    let [UserOrders,setUserOrders] = useState({}); //記錄使用者訂單
+    let [UserOrders, setUserOrders] = useState([]); //記錄使用者訂單
     // 只執行一次
     useEffect(() => {
         async function getMember2() {
-            
             let response2 = await axios.get(
                 `http://localhost:3001/api/members/userData`,
                 {
                     withCredentials: true,
                 }
             );
-            // UserInputData.current = response2.data[0];
             setUserData(response2.data[0].users_id);
-            console.log(response2.data[0]); 
+            console.log(response2.data[0]);
             setUserOldDatas(response2.data[0]);
             let responseOrder = await axios.get(
                 `http://localhost:3001/api/members/orders`,
@@ -40,7 +38,7 @@ function HeadImg(user) {
                     withCredentials: true,
                 }
             );
-            setUserOrders(responseOrder.data[0]);
+            setUserOrders(responseOrder.data);
         }
         getMember2();
     }, []);
@@ -49,11 +47,12 @@ function HeadImg(user) {
         username: "",
         account: "",
         email: "",
+        imageHead: "",
         phone: "",
     });
     // 每次輸入後更新
     useEffect(() => {
-        console.log(UserInputData);
+        // console.log(UserInputData);
     }, [UserInputData]);
     // 每次輸入後更新
     const handleChange = (event) => {
@@ -66,32 +65,29 @@ function HeadImg(user) {
     const handleSubmit = (event) => {
         event.preventDefault();
         axios
-            .put(`http://localhost:3001/api/members`, {
+            .put(`http://localhost:3001/api/members/userData`, {
                 username: UserInputData.username,
                 account: UserInputData.account,
                 email: UserInputData.email,
                 phone: UserInputData.phone,
+                imageHead:UserInputData.imageHead,
                 usersId: UserData,
             })
             .then((response) => console.log(response))
             .catch((error) => console.error(error));
     };
-    console.log(UserOldDatas);
-    console.log(UserOrders);
+    // console.log(UserOldDatas);
+    // console.log(UserOrders);
 
     return (
         <div className='_buyLogin_flex'>
             <div className='_buyLogin_RWDflexcol _buyLogin_rwd_flex'>
                 <div className='_buyLogin_flex-re' style={{ marginTop: "1em" }}>
                     <img
-                        src={buyerImg}
+                        src={UserOldDatas.user_imageHead}
                         alt='buyHead'
                         className='_buyLogin_headImg'
                     />
-                    <label className='_buyLogin_headIcon'>
-                        {/* 增加檔案 */}
-                        <input type='file' style={{ display: "none" }}></input>
-                    </label>
                 </div>
                 <h3>
                     您好
@@ -140,7 +136,6 @@ function HeadImg(user) {
                             </div>
                         </div>
                         {/* 左邊表單 */}
-
                         <div
                             className='_buyLogin_Contentbox _buyLogin_flex'
                             style={{
@@ -207,8 +202,21 @@ function HeadImg(user) {
                                         required
                                     ></input>
                                 </div>
+                                <label className='_buyLogin_headIcon'>
+                                    {/* 增加檔案 */}
+                                    <div>
+                                        <input
+                                            type='file'
+                                            id="imageHead"
+                                            name="imageHead"
+                                            style={{ display: "none" }}
+                                            value={UserInputData.imageHead}
+                                            onChange={handleChange}
+                                        ></input>
+                                    </div>
+                                </label>
                                 <div className=' _buyLogin_p2 _buyLogin_flex_end'>
-                                    <button className='_buyLogin_ChangeControlBtn'>
+                                    <button className='_buyLogin_ChangeControlBtn' onClick={handleSubmit}>
                                         更改
                                     </button>
                                 </div>
@@ -232,7 +240,7 @@ function HeadImg(user) {
                                     <label className='_buyLogin_h4'>
                                         城市：
                                     </label>
-                                    <select className='_buyLogin_SettingInput'>
+                                    <select className='_buyLogin_SettingInput' >
                                         <option disabled>請選擇城市</option>
                                         <option>桃園市</option>
                                         <option>新北市</option>
@@ -324,28 +332,24 @@ function HeadImg(user) {
                             </tr>
                         </thead>
                         <tbody>
-                        {/* <div key={UserOrders.order_id}>{UserOrders.order_id}</div> */}
-                        {/* { OrderMap() { */}
-                            {/* UserOrders.map(User_Order => ( */}
-                        
-                        
-                            
-                            <tr 
-                                // key={User_Order.order_id}
-                                className='_buyLogin_tr _buyLogin_tline'
-                                style={{ borderColor: "#CAB296" }}
-                            >
-                                {/* <td>{User_Order.order_date}</td> */}
-                                <td>12,800</td>
-                                <td>2022/11/02</td>
-                                <td>1</td>
-                                <td>
-                                    <button className='_buyLogin_tableBtn'>
-                                        詳細資訊
-                                    </button>
-                                </td>
-                            </tr>
-                            {/* ))}} */}
+                            {/* <div key={UserOrders.order_id}>{UserOrders.order_id}</div> */}
+                            {UserOrders.map((User_Order) => (
+                                <tr
+                                    key={User_Order.order_id}
+                                    className='_buyLogin_tr _buyLogin_tline'
+                                    style={{ borderColor: "#CAB296" }}
+                                >
+                                    <td>{User_Order.order_date}</td>
+                                    <td>12,800</td>
+                                    <td>2022/11/02</td>
+                                    <td>1</td>
+                                    <td>
+                                        <button className='_buyLogin_tableBtn'>
+                                            詳細資訊
+                                        </button>
+                                    </td>
+                                </tr>
+                            ))}
                         </tbody>
                     </table>
                 </div>
