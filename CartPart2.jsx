@@ -50,6 +50,7 @@ const CartPart2 = () => {
       payment:'Line Pay',
       send_address:users[0].send_address,
       total:cart.cartTotal,
+      pirce:cart.cartTotal,
     },{
       withCredentials:true,
     });
